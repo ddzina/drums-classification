@@ -2,7 +2,6 @@ import os
 
 PATH = 'Dataset'
 
-
 def main():
     for dirpath, dirnames, filenames in os.walk(PATH):
         if dirpath is not PATH:

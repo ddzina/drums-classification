@@ -1,5 +1,4 @@
 import json
-
 import numpy as np
 import sklearn
 import librosa
@@ -8,6 +7,8 @@ import os
 
 PATH = 'Dataset'
 JSON_PATH = 'myData.json'
+TARGET_SR = 16000
+
 
 def detect_leading_silence(sound, silence_threshold=.001, chunk_size=10):
     # this function first normalizes audio data
@@ -28,8 +29,8 @@ def detect_leading_silence(sound, silence_threshold=.001, chunk_size=10):
 def feature_extract():
 
     sr = 44100
-    window_size = 4096
-    hop_size = window_size/2
+    window_size = 512
+    hop_size = 256
     data = {
         'mapping': [],
         'mfcc': [],
@@ -49,17 +50,19 @@ def feature_extract():
             for filename in filenames:
 
                 music, sr = librosa.load(os.path.join(dirpath, filename), sr=sr)
-
+                music = librosa.resample(music, orig_sr=sr, target_sr=TARGET_SR)
                 start_trim = detect_leading_silence(music)
                 end_trim = detect_leading_silence(np.flipud(music))
 
                 duration = len(music)
+                print(f'Duration of sound {duration}')
                 trimmed_sound = music[start_trim:duration-end_trim]
+                print(f'Trimmed duration {len(trimmed_sound)}')
                 # the sound without silence
 
                 #use mfcc to calculate the audio features
-                mfccs = librosa.feature.mfcc(y=trimmed_sound, sr=sr, n_fft=window_size)
-                aver = np.mean(mfccs, axis = 1)
+                mfccs = librosa.feature.mfcc(y=trimmed_sound, sr=TARGET_SR, n_mfcc=20, hop_length=hop_size, n_fft=window_size)
+                aver = np.mean(mfccs, axis=1)
                 feature = aver.reshape(20)
 
                 #store label and feature
@@ -70,8 +73,7 @@ def feature_extract():
                 data['mfcc'].append(feature.tolist())
                 data['labels'].append(i-1)
                 print(filename, i-1)
-                #data = np.vstack((data, data2))
-                # print data
+                
     return data
 
 
@@ -79,8 +81,6 @@ def main():
     data = feature_extract()
     with open(JSON_PATH, 'w') as fp:
         json.dump(data, fp, indent=4)
-    print(data)
-    print(len(data))
 
 
 if __name__ == '__main__':

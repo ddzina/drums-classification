@@ -1,0 +1,3 @@
+Accuracy on test: 0.852, Accuracy on validation: 0.8259325044404974 
+Precision on test: 0.852, Precision on validation: 0.8259325044404974 
+Loss on test: 0.584, Loss on validation: 1.0124333925399644
