@@ -1,2 +1,3 @@
-# drums-classification
-Research work on classifying drum samples
+# Классификация электронных барабанов с помощью модели машинного обучения
+Язык разработки: Python 3.10
+Установка зависимостей: pip install requirements.txt
