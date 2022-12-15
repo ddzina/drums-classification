@@ -1,3 +1,13 @@
-Accuracy on test: 0.804, Accuracy on validation: 0.8348134991119005 
-Precision on test: 0.804, Precision on validation: 0.8348134991119005 
-Loss on test: 0.728, Loss on validation: 0.8774422735346359
+              precision    recall  f1-score   support
+
+        Bass       0.91      0.93      0.92        55
+        Clap       0.79      0.94      0.86        51
+       Crash       0.74      0.69      0.71        45
+       HiHat       0.79      0.76      0.77        45
+        Kick       0.84      0.82      0.83        51
+       Snare       0.79      0.72      0.75        53
+
+    accuracy                           0.81       300
+   macro avg       0.81      0.81      0.81       300
+weighted avg       0.81      0.81      0.81       300
+ 
