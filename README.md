@@ -59,11 +59,11 @@ so I have a field for future experiments enhancing my classifier.
 
 ## Installation:
 ### 1. Clone the repo
-> git clone https://github.com/ddzina/drums-classification.git
+    git clone https://github.com/ddzina/drums-classification.git
 
 ### 2. Create Anaconda virtual environment:
 
->conda create --name env --file requirements.txt
+    conda create --name env --file requirements.txt
 
 Put your name of environment after flag "--name". Created environment will include all the requirement dependencies.
 
