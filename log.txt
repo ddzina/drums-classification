@@ -1,13 +1,13 @@
               precision    recall  f1-score   support
 
-        Bass       0.91      0.93      0.92        55
-        Clap       0.79      0.94      0.86        51
-       Crash       0.74      0.69      0.71        45
-       HiHat       0.79      0.76      0.77        45
-        Kick       0.84      0.82      0.83        51
-       Snare       0.79      0.72      0.75        53
+        Bass       0.89      0.83      0.86        59
+        Clap       0.84      0.98      0.91        49
+       Crash       0.76      0.74      0.75        47
+       HiHat       0.83      0.76      0.80        46
+        Kick       0.79      0.82      0.81        51
+       Snare       0.87      0.85      0.86        48
 
-    accuracy                           0.81       300
-   macro avg       0.81      0.81      0.81       300
-weighted avg       0.81      0.81      0.81       300
+    accuracy                           0.83       300
+   macro avg       0.83      0.83      0.83       300
+weighted avg       0.83      0.83      0.83       300
  
